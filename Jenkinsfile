@@ -55,11 +55,11 @@ pipeline {
                 }
             }
         }
-    }
-    stage(Application URL){
-        script {
-            echo "http://${tomcatIp}:${tomcatPort}/${appContext}"
-        }        
+        stage('Application URL'){
+            script {
+                echo "http://${tomcatIp}:${tomcatPort}/${appContext}"
+            }        
+        }
     }
         post {
         success {
