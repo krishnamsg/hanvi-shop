@@ -56,4 +56,17 @@ pipeline {
             }
         }
     }
+    stage(Application URL){
+        script {
+            echo "http://${tomcatIp}:${tomcatPort}/${appContext}"
+        }        
+    }
+        post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed!'
+        }
+    }
 }
