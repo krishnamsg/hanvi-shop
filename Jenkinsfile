@@ -56,7 +56,7 @@ pipeline {
             }
         }
         stage('Application URL'){
-            script {
+            steps {
                 echo "http://${tomcatIp}:${tomcatPort}/${appContext}"
             }        
         }
