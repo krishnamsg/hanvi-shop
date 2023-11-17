@@ -52,13 +52,10 @@ pipeline {
                     // For example, use curl or deploy the war file to the Tomcat webapps directory
                     
                     sh "curl --user ${tomcatUsername}:${tomcatPassword} --upload-file target/*.war http://${tomcatIp}:${tomcatPort}/manager/text/deploy?path=/${appContext}"
-                }
+                
+					echo " Application URL: http://${tomcatIp}:${tomcatPort}/${appContext}"
+				}
             }
-        }
-        stage('Application URL'){
-            steps {
-                echo "http://${tomcatIp}:${tomcatPort}/${appContext}"
-            }        
         }
     }
         post {
