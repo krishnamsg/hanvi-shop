@@ -45,7 +45,7 @@ pipeline {
                     def (tomcatIp, tomcatPort) = tomcatIpWithPort.split(':')
 
                      // Remove old application files
-                    sh "curl --user ${tomcatUsername}:${tomcatPassword} http://${tomcatIp}:${tomcatPort}/manager/text/deploy?path=/${appContext}"
+                    sh "curl --user ${tomcatUsername}:${tomcatPassword} --upload-file target/*.war ${tomcatUsername}:${tomcatPassword}/manager/text/undeploy?path=/${appContext}"
                     
 
                     // Add deployment steps based on your deployment strategy
