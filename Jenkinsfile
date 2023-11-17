@@ -9,6 +9,10 @@ pipeline {
         password(name: 'TOMCAT_PASSWORD', defaultValue: 'deployer', description: 'Enter Tomcat Password')
         string(name: 'APP_CONTEXT', defaultValue: 'myapp', description: 'Enter App Context')
     }
+     environment {
+        TOMCAT_HOME = "/opt/tomcat-9"
+        //WAR_FILE = "your-application.war"
+    }
 
     stages {
         stage('Checkout') {
@@ -41,7 +45,7 @@ pipeline {
                     def (tomcatIp, tomcatPort) = tomcatIpWithPort.split(':')
 
                      // Remove old application files
-                    sh "sudo rm -rf /opt/tomcat-9/webapps/${appContext}*"
+                    sh "rm -rf ${TOMCAT_HOME}/webapps/${appContext}*"
 
                     // Add deployment steps based on your deployment strategy
                     // For example, use curl or deploy the war file to the Tomcat webapps directory
