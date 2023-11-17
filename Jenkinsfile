@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     parameters {
-        string(name: 'GIT_URL', defaultValue: 'https://github.com/example/repo.git', description: 'Enter Git URL')
+        string(name: 'GIT_URL', defaultValue: 'https://github.com/krishnamsg/hanvi-shop.git', description: 'Enter Git URL')
         string(name: 'GIT_BRANCH', defaultValue: 'master', description: 'Enter Git Branch')
         string(name: 'TOMCAT_IP', defaultValue: '10.10.0.3:8090', description: 'Enter Tomcat Server IP with port')
         string(name: 'TOMCAT_USERNAME', defaultValue: 'deployer', description: 'Enter Tomcat Username')
