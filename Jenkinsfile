@@ -40,8 +40,12 @@ pipeline {
                     // Split the IP and port
                     def (tomcatIp, tomcatPort) = tomcatIpWithPort.split(':')
 
+                     // Remove old application files
+                    sh "rm -rf /opt/tomcat-9/webapps/${appContext}*"
+
                     // Add deployment steps based on your deployment strategy
                     // For example, use curl or deploy the war file to the Tomcat webapps directory
+                    
                     sh "curl --user ${tomcatUsername}:${tomcatPassword} --upload-file target/*.war http://${tomcatIp}:${tomcatPort}/manager/text/deploy?path=/${appContext}"
                 }
             }
