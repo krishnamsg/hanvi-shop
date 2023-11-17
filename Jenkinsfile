@@ -46,6 +46,7 @@ pipeline {
 
                      // Remove old application files
                     sh "sudo rm -rf ${TOMCAT_HOME}/webapps/${appContext}*"
+                    sleep 10s
 
                     // Add deployment steps based on your deployment strategy
                     // For example, use curl or deploy the war file to the Tomcat webapps directory
