@@ -41,7 +41,7 @@ pipeline {
                     def (tomcatIp, tomcatPort) = tomcatIpWithPort.split(':')
 
                      // Remove old application files
-                    sh "rm -rf /opt/tomcat-9/webapps/${appContext}*"
+                    sh "sudo rm -rf /opt/tomcat-9/webapps/${appContext}*"
 
                     // Add deployment steps based on your deployment strategy
                     // For example, use curl or deploy the war file to the Tomcat webapps directory
